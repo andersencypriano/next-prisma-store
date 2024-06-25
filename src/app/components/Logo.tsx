@@ -1,9 +1,10 @@
+import Link from 'next/link'
 import React from 'react'
 
 type Props = {}
 
 export default function Logo({}: Props) {
   return (
-    <h1>MT Store Theme</h1>
+    <Link href={"/"}>MT STORE THEME</Link>
   )
 }
