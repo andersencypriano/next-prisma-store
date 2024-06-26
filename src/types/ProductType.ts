@@ -7,4 +7,5 @@ export type ProductType = {
   category: string;
   sku: string;
   stock: string;
+  brand: string;
 }
