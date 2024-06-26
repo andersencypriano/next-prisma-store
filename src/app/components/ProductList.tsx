@@ -5,7 +5,7 @@ import ProductItem from "./ProductItem";
 async function getProducts() {
   try {
     const response = await fetch(
-      "https://dummyjson.com/products?limit=20&select=id,title,price,description,thumbnail,category"
+      "https://dummyjson.com/products?limit=8&select=id,title,price,description,thumbnail,category"
     );
     const data = await response.json();
     const productsArray = data.products;
@@ -21,7 +21,7 @@ export default async function ProductList() {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 xl:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 xl:gap-9 gap-y-10">
         {productsList.map((product: ProductType) => (
           <ProductItem key={product.id} product={product} />
         ))}

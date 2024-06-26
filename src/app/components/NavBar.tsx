@@ -30,7 +30,7 @@ export default async function NavBar() {
         ))}
       </ul> */}
 
-      <ul className="flex gap-2 justify-between">
+      <ul className="flex gap-6 justify-between">
         <li>
           <Link href='/category/beauty'>Beauty</Link>
         </li>
