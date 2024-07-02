@@ -8,4 +8,5 @@ export type ProductType = {
   sku: string;
   stock: string;
   brand: string;
+  count: number;
 }
