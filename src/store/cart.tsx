@@ -1,7 +1,26 @@
-import { create } from 'zustand'
+import { ProductType } from "@/types/ProductType";
+import { create } from "zustand";
 
-export const useStoreMT = create((set) => ({
-  totalItems: 0,
-  addItems: () => set((state) => ({ totalItems: state.totalItems + 1 })),
-  removeAllBears: () => set({ totalItems: 0 }),
-}))
+interface CartItem extends ProductType {
+  count: number;
+}
+
+type CartStore = {
+  cart: CartItem[];
+  count: () => number;
+  add: (product: ProductType) => void;
+  removeAll: () => void;
+};
+
+export const useStoreMT = create<CartStore>((set, get) => ({
+  cart: [],
+  count: () => {
+    const { cart } = get();
+    console.log(cart.length);
+    return 0;
+  },
+  add: (product: ProductType) => {
+    const { cart } = get();
+  },
+  removeAll: () => set({ cart: [] }),
+}));
