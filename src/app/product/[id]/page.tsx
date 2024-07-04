@@ -1,4 +1,4 @@
-import AddToCart from "@/app/components/Buttons/AddToCart";
+import AddToCart from "@/app/components/Cart/Buttons/AddToCart";
 import { ProductType } from "@/types/ProductType";
 import Image from "next/image";
 
