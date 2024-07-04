@@ -4,7 +4,7 @@ import UserNavBar from "./UserNavBar";
 
 export default function Header() {
   return (
-    <header className="w-full fixed top-0 left-0 bg-slate-900 p-3">
+    <header className="w-full fixed top-0 left-0 bg-slate-900 p-3 z-50">
       <div className="container mx-auto flex items-center justify-between text-white">
         <div className="w-1/5">
           <Logo />
