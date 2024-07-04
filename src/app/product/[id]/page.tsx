@@ -1,3 +1,4 @@
+import AddToCart from "@/app/components/Buttons/AddToCart";
 import { ProductType } from "@/types/ProductType";
 import Image from "next/image";
 
@@ -20,9 +21,9 @@ export default async function ProductPage({
 }: {
   params: { id: string };
 }) {
-  const productsList: ProductType = await getSingleProducts(params.id);
+  const product: ProductType = await getSingleProducts(params.id);
   const { id, title, price, description, thumbnail, category, sku, brand } =
-    productsList;
+    product;
 
   return (
     <>
@@ -42,9 +43,7 @@ export default async function ProductPage({
           <p className="text-sm mb-8 text-stone-500">sku: <span className="text-xs text-stone-500">{sku}</span></p>
           <h1 className="mb-6">{description}</h1>
           <h1 className="text-xl font-bold">R$ {price}</h1>
-          <button className="mt-6 w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-            COMPRAR
-          </button>
+          <AddToCart product={product} label="Adicionar ao carrinho"/>
         </div>
       </div>
     </>
