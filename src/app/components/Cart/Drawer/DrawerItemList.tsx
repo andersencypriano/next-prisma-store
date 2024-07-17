@@ -10,7 +10,7 @@ interface DrawerProps {
 }
 
 export default function DrawerItemList(product: DrawerProps) {
-  const { id, title, price, thumbnail, category, sku, brand, count } =
+  const { id, title, price, thumbnail, category, sku, brand} =
     product.productItem;
     const { toggleIsOpen } = useStoreMT();
   return (
