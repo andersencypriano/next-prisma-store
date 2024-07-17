@@ -7,6 +7,8 @@ interface CartItem extends ProductType {
 
 type CartStore = {
   cart: CartItem[];
+  isOpen: boolean,
+  toggleIsOpen: () => void;
   count: () => number;
   add: (product: ProductType) => void;
   remove: (idProduct: number) => void;
@@ -15,6 +17,11 @@ type CartStore = {
 
 export const useStoreMT = create<CartStore>((set, get) => ({
   cart: [],
+  isOpen: false,
+  toggleIsOpen: () => {
+    const { isOpen } = get();
+    set({ isOpen: !isOpen });
+  },
   count: () => {
     const { cart } = get();
     return cart.length;
