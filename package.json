@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/localizations": "^2.5.1",
+    "@clerk/nextjs": "^5.2.6",
     "@vercel/speed-insights": "^1.0.12",
     "next": "14.2.3",
     "react": "^18",
