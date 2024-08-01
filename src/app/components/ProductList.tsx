@@ -1,14 +1,14 @@
 import React from "react";
-import { ProductType } from "@/types/ProductType";
+import { MainDatum, ProductType } from "@/types/ProductType";
 import ProductItem from "./ProductItem";
 
 async function getProducts() {
   try {
     const response = await fetch(
-      "https://dummyjson.com/products?limit=8&select=id,title,price,description,thumbnail,category"
+      "http://127.0.0.1:1337/api/produtos?populate=*"
     );
     const data = await response.json();
-    const productsArray = data.products;
+    const productsArray = data.data;
     return productsArray;
   } catch (error) {
     console.error("Erro:", error);
@@ -22,7 +22,7 @@ export default async function ProductList() {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 xl:gap-9 gap-y-10">
-        {productsList.map((product: ProductType) => (
+        {productsList.map((product: MainDatum) => (
           <ProductItem key={product.id} product={product} />
         ))}
       </div>

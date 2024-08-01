@@ -10,23 +10,7 @@ export default function Home() {
           <div className="mb-14">
             <ProductList />
           </div>
-          <div className="mb-14">
-            <VitrineProducts
-              title="Camisetas Masculinas"
-              categoryName="mens-shirts"
-              limit={4}
-            />
-          </div>
-          <div className="mb-14">
-            <VitrineProducts title="Beleza" categoryName="beauty" limit={4} />
-          </div>
-          <div className="mb-14">
-            <VitrineProducts
-              title="Sapatos Femininos"
-              categoryName="womens-shoes"
-              limit={4}
-            />
-          </div>
+          
         </div>
       </main>
     </>
