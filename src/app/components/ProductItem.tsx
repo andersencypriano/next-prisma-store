@@ -8,13 +8,17 @@ type ProductProps = {
 };
 
 export default function ProductItem({ product }: ProductProps) {
+
+  const getImage = (url: string) => {
+    return `${process.env.STRAPI_URL}${url}`;
+  };
   return (
     <>
       <Link href={`/product/${product.id}`}>
         <div key={product.id} className="p-4 rounded-lg hover:shadow-xl">
           <div className="flex justify-center w-full mb-4 bg-slate-100">
             <Image
-              src={product.attributes.Images.data[0].attributes.url}
+              src={getImage(product.attributes.Images.data[0].attributes.url)}
               alt="image"
               width={200}
               height={200}
