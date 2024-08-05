@@ -21,9 +21,9 @@ export default function ProductItem({ product, key }: ProductProps) {
             <Image
               src={getImage(product.attributes.Images.data[0].attributes.url)}
               alt="image"
-              width={200}
-              height={200}
-              className="w-[auto] h-[200px]"
+              width={250}
+              height={250}
+              className="w-[auto] h-[250px]"
             />
           </div>
           <div className="mb-3">
