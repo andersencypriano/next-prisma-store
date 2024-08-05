@@ -1,13 +1,14 @@
-import { MainDatum, ProductType } from "@/types/ProductType";
+import { Produtos, ProdutosDatum } from "@/interfaces/StrapiData";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type ProductProps = {
-  product: MainDatum;
+  product: ProdutosDatum;
+  key: number;
 };
 
-export default function ProductItem({ product }: ProductProps) {
+export default function ProductItem({ product, key }: ProductProps) {
 
   const getImage = (url: string) => {
     return `${process.env.STRAPI_URL}${url}`;
