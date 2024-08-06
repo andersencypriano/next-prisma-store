@@ -13,7 +13,7 @@ export default function DrawerList () {
             <div className="absolute top-[20px] right-[20px]">
               <DeleteItemCart idProduct={product.id} size={15}/>
             </div>
-            <ProductItem product={product} />
+            {product.attributes.Nome}
           </div>
         ))}
       </div>

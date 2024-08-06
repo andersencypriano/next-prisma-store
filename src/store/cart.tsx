@@ -1,7 +1,8 @@
-import { ProductType } from "@/types/ProductType";
+
+import { Data } from "@/interfaces/SingleProduct";
 import { create } from "zustand";
 
-interface CartItem extends ProductType {
+interface CartItem extends Data {
   count: number;
 }
 
@@ -10,7 +11,7 @@ type CartStore = {
   isOpen: boolean,
   toggleIsOpen: () => void;
   count: () => number;
-  add: (product: ProductType) => void;
+  add: (product: Data) => void;
   remove: (idProduct: number) => void;
   removeAll: () => void;
 };
@@ -26,7 +27,7 @@ export const useStoreMT = create<CartStore>((set, get) => ({
     const { cart } = get();
     return cart.length;
   },
-  add: (product: ProductType) => {
+  add: (product: Data) => {
     const { cart } = get();
     const updatedCart = updateCart(product, cart);
     set({ cart: updatedCart });
@@ -39,7 +40,7 @@ export const useStoreMT = create<CartStore>((set, get) => ({
   removeAll: () => set({ cart: [] }),
 }));
 
-function updateCart(product: ProductType, cart: CartItem[]): CartItem[] {
+function updateCart(product: Data, cart: CartItem[]): CartItem[] {
   const cartItem = { ...product, count: 1 } as CartItem;
 
   const productOnCart = cart.map((item) => item.id).includes(product.id);

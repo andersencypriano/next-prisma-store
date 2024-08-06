@@ -1,5 +1,5 @@
 export function getStrapiImage (url: string) {
-  const urlImage = `${process.env.STRAPI_API_URL}url`;
+  const urlImage = `${process.env.STRAPI_URL}${url}`;
 
   return urlImage;
 }

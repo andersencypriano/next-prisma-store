@@ -12,6 +12,7 @@ export default async function ProductPage({
   const getImage = (url: string) => {
     return `${process.env.STRAPI_URL}${url}`;
   };
+
   return (
     <>
       <div className="mt-24 flex gap-9 justify-between max-w-4xl mx-auto">
@@ -30,7 +31,7 @@ export default async function ProductPage({
           {/* <p className="text-sm mb-8 text-stone-500">sku: <span className="text-xs text-stone-500">{sku}</span></p> */}
           <h1 className="mb-6">{singleProduct?.data.attributes.descricao[0].children[0].text}</h1>
           <h1 className="text-xl font-bold">R$ {singleProduct?.data.attributes.valor}</h1>
-          {/* <AddToCart product={product} label="Adicionar ao carrinho"/> */}
+          <AddToCart product={singleProduct.data} label="Adicionar ao carrinho"/>
         </div>
       </div>
     </>

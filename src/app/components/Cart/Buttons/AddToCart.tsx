@@ -1,10 +1,10 @@
 'use client';
+import { Data } from "@/interfaces/SingleProduct";
 import { useStoreMT } from "@/store/cart";
-import { ProductType } from "@/types/ProductType";
 import React from "react";
 
 interface Props {
-  product: ProductType;
+  product: Data;
   label: string;
 }
 
