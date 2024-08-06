@@ -1,16 +1,16 @@
 'use-client'
 import Link from "next/link";
 import React from "react";
-import ProductItem from "./ProductItem";
+import { MainCategoryList, MainDatum } from "@/types/CategoryList";
 
-async function getCategoryList() {
+async function getCategoryList(){
   try {
     const response = await fetch(
-      `https://dummyjson.com/products/category-list?limit=5`
+      `http://127.0.0.1:1337/api/categorias?populate=*`
     );
     const data = await response.json();
-    const productsArray = data;
-    return productsArray;
+    const categories: MainCategoryList = data;
+    return categories;
   } catch (error) {
     console.error("Erro:", error);
     return null;
@@ -18,36 +18,15 @@ async function getCategoryList() {
 }
 
 export default async function NavBar() {
-  const productsList = await getCategoryList();
-
+  const categoriesList = await getCategoryList();
   return (
     <>
-      {/* <ul className="flex gap-2 justify-between">
-        {productsList.map((categoryName: string) => (
-          <li key={categoryName}>
-            <Link href={`/category/${categoryName}`}>{`${categoryName}`}</Link>
+      <ul className="flex gap-6 justify-between">
+        {categoriesList?.data.map((category: MainDatum) => (
+          <li key={category.id}>
+            <Link href={`/category/${category.id}`}>{`${category.attributes.Nome}`}</Link>
           </li>
         ))}
-      </ul> */}
-
-      <ul className="flex gap-6 justify-between">
-        <li>
-          <Link href='/category/beauty'>Beauty</Link>
-        </li>
-        
-        <li>
-          <Link href="/category/motorcycle">Motorcycle</Link>
-        </li>
-        <li>
-          <Link href="/category/sunglasses">Sunglasses</Link>
-        </li>
-        <li>
-          <Link href="/category/tablets">Tablets</Link>
-        </li>
-        <li>
-          <Link href="/category/tops">Tops</Link>
-        </li>
-        
       </ul>
     </>
   );

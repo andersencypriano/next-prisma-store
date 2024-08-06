@@ -6,14 +6,10 @@ import React from "react";
 
 type ProductProps = {
   product: Data;
-  key: number;
 };
 
-export default function ProductItem({ product, key }: ProductProps) {
+export default function ProductItem({ product}: ProductProps) {
 
-  const getImage = (url: string) => {
-    return `${process.env.STRAPI_URL}${url}`;
-  };
   return (
     <>
       <Link href={`/product/${product.id}`}>
