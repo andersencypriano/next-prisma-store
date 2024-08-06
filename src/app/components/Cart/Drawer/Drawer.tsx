@@ -6,7 +6,6 @@ import React from "react";
 import { MdClose } from "react-icons/md";
 import Link from "next/link";
 import DeleteItemCart from "../Buttons/DeleteItemCart";
-import { getStrapiImage } from "@/utils/getStrapiImage";
 
 export default function Drawer() {
   const { isOpen, toggleIsOpen, cart, removeAll } = useStoreMT();
@@ -35,7 +34,7 @@ export default function Drawer() {
                   <div className="flex gap-2">
 
                     <Image
-                      src={getStrapiImage(`http://127.0.0.1:1337${product.attributes.Images.data[0].attributes.url}`)}
+                      src={`http://127.0.0.1:1337${product.attributes.Images.data[0].attributes.url}`}
                       alt="image"
                       width={80}
                       height={80}

@@ -13,7 +13,7 @@ export default function CartList() {
             <div className="absolute top-[20px] right-[20px]">
               <DeleteItemCart idProduct={product.id} size={20}/>
             </div>
-            <ProductItem product={product} />
+            <ProductItem key={product.id} product={product} />
           </div>
         ))}
       </div>
